@@ -1,0 +1,7 @@
+# Created by .gitignore support plugin (hsz.mobi)
+.idea
+gradle
+gradlew
+dojo2.iml
+gradlew.bat
+someTestFile.txt
