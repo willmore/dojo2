@@ -5,22 +5,28 @@ import spock.lang.Specification
 
 class SoccerDataAnalyzerSpec extends Specification {
 
-    def "Finds team with worst goal difference single record data set"() {
+    def "Finds team with worst goal difference in single record data set"() {
+
         def teamRecords = new SoccerDataSet("src/test/resources/dojo/soccerOneEntry.dat")
 
-        Finder<TeamRecord> locator = new TeamWithWorstGoalDifferenceFinder()
+        Finder<TeamRecord> worstTeam = new TeamWithWorstGoalDifferenceFinder()
 
         expect:
-        teamRecords.find(locator).result().getName() == "Chelsea"
+        teamRecords.find(worstTeam)
+                   .result()
+                   .getName() == "Chelsea"
     }
 
-    def "Finds team with worst goal difference multi-record data set"() {
+    def "Finds team with worst goal difference in multi-record data set"() {
+
         def teamRecords = new SoccerDataSet("src/test/resources/dojo/soccer.dat")
 
-        Finder<TeamRecord> locator = new TeamWithWorstGoalDifferenceFinder()
+        Finder<TeamRecord> worstTeam = new TeamWithWorstGoalDifferenceFinder()
 
         expect:
-        teamRecords.find(locator).result().getName() == "Queens Park Rangers"
+        teamRecords.find(worstTeam)
+                   .result()
+                   .getName() == "Queens Park Rangers"
     }
 
 }
